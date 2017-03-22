@@ -24,38 +24,8 @@ simplifies the sample and makes it very easy to follow the message flow.
 
 Now let's complete this tutorial by writing the driver code that will exercise our `Greeter` Actor.
 
-```java
-// Java code
+Java
+:    @@snip [HelloAkkaJava.java]($g8src$/java/HelloAkkaJava.java) { #inbox_snippet }
 
-// Create an "actor-in-a-box"
-final Inbox inbox = Inbox.create(system);
-
-// Tell the 'greeter' to change its 'greeting' message
-greeter.tell(new WhoToGreet("akka"), ActorRef.noSender());
-
-// Ask the 'greeter for the latest 'greeting'
-// Reply should go to the mailbox
-inbox.send(greeter, new Greet());
-
-// Wait 5 seconds for the reply with the 'greeting' message
-Greeting greeting = (Greeting) inbox.receive(Duration.create(5, "seconds"));
-System.out.println("Greeting: " + greeting.message);
-```
-
-```scala
-// Scala code
-
-// Create an "actor-in-a-box"
-val inbox = Inbox.create(system)
-
-// Tell the 'greeter' to change its 'greeting' message
-greeter tell WhoToGreet("akka")
-
-// Ask the 'greeter for the latest 'greeting'
-// Reply should go to the mailbox
-inbox.send(greeter, Greet)
-
-// Wait 5 seconds for the reply with the 'greeting' message
-val Greeting(message) = inbox.receive(5.seconds)
-println(s"Greeting: $message")
-```
+Scala
+:    @@snip [HelloAkkaScala.scala]($g8src$/scala/HelloAkkaScala.scala) { #inbox_snippet }

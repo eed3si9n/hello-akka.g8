@@ -16,22 +16,13 @@ It is in a suspended state in which it does not consume any resources apart from
 You tell an Actor to do something by passing in a message into the `tell` method on the
 `ActorRef`. This method puts the message on the actor's mailbox and then returns immediately.
 
-```java
-// Java code
+Java
+:    @@snip [Snippet.java]($raw$/Snippet.java) { #tell_snippet }
 
-greeter.tell(new WhoToGreet("akka"), ActorRef.noSender());
-```
-
-```scala
-// Scala code
-
-greeter.tell(WhoToGreet("akka"), ActorRef.noSender)
-```
+Scala
+:    @@snip [Snippet.scala]($raw$/Snippet.scala) { #tell_snippet }
 
 If you are using Akka from Scala then you can also use the alias; `!`, called the bang operator.
 
-```scala
-// Scala code
-
-greeter ! WhoToGreet("akka")
-```
+Scala
+:    @@snip [Snippet.scala]($raw$/Snippet.scala) { #tell_snippet2 }

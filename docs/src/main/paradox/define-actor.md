@@ -23,23 +23,8 @@ the `WhoToGreet` and the `Greet` messages.
 Let's start by creating our Actor in Java (you can find the code in the <a href="#code/src/main/java/HelloAkkaJava.java"
  class="shortcut">HelloAkkaJava.java</a> file):
 
-```java
-// Java code
-
-public static class Greeter extends UntypedActor {
-    String greeting = "";
-
-    public void onReceive(Object message) {
-        if (message instanceof WhoToGreet)
-            greeting = "hello, " + ((WhoToGreet) message).who;
-
-        else if (message instanceof Greet)
-            getSender().tell(new Greeting(greeting), getSelf());
-
-        else unhandled(message);
-    }
-}
-```
+Java
+:    @@snip [HelloAkkaJava.java]($g8src$/java/HelloAkkaJava.java) { #actor_snippet }
 
 Actors like this one are "untyped" in the sense that the type of message received is not restricted—it is 
 `Object` as shown above. There are also typed actors, but we will 
@@ -52,18 +37,8 @@ Now let's implement it in Scala. As you can see, Scala's pattern matching featur
 with Actors, but apart from that it's pretty similar to the Java version (you can find the code in the
 <a href="#code/src/main/scala/HelloAkkaScala.scala" class="shortcut">HelloAkkaScala.scala</a> file).
 
-```scala
-// Scala code
-
-class Greeter extends Actor {
-  var greeting = ""
-
-  def receive = {
-    case WhoToGreet(who) => greeting = s"hello, $who"
-    case Greet           => sender ! Greeting(greeting)
-  }
-}
-```
+Scala
+:    @@snip [HelloAkkaScala.scala]($g8src$/scala/HelloAkkaScala.scala) { #actor_snippet }
 
 You will notice one difference to the Java version: here we do not
 explicitly pass unhandled messages to the `unhandled()` method.

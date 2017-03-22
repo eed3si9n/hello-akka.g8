@@ -12,12 +12,8 @@ an Actor then you have access to your own `ActorRef` through `self` reference, p
 note that you should never use `this`. In Java you can access the self reference through the
 `getSelf()` method, while you can use `self` in Scala.
 
-```java
-// Java code
-
-// From within an Actor
-greeter.tell(new Greet(), getSelf());
-```
+Java
+:    @@snip [Snippet.java]($raw$/Snippet.java) { #self_snippet }
 
 In Scala this is simplified a bit. Scala has something called
 <a href="http://docs.scala-lang.org/tutorials/tour/implicit-parameters.html">implicit parameters</a> which allows you to automatically and
@@ -27,12 +23,8 @@ pass along the sender reference when you send a message to another Actor.
 This code will, if invoked from within Actor 'A' automatically pass along the `ActorRef` of
 Actor 'A' as the sender of this message:
 
-```scala
-// Scala code
-
-// From within an Actor
-greeter ! Greet
-```
+Scala
+:    @@snip [Snippet.scala]($raw$/Snippet.scala) { #self_snippet }
 
 If you choose not to pass in a sender reference into the `tell` method, or forget it, then a reference to
 the 'dead-letter' Actor will be used. The 'dead-letter' Actor is where all unhandled messages end up, and
@@ -46,16 +38,8 @@ new message you process. So if you for some reason need to use a specific sender
 to hold on to it, storing it away in a member field or similar. In Java you can access it using the
 `getSender()` method (while you can use `sender` in Scala).
 
-```java
-// Java code
+Java
+:    @@snip [Snippet.java]($raw$/Snippet.java) { #sender_snippet }
 
-// From within the Greeter Actor
-getSender().tell(new Greeting(greeting), getSelf());
-```
-
-```scala
-// Scala code
-
-// From within the Greeter Actor
-sender ! Greeting(greeting)
-```
+Scala
+:    @@snip [Snippet.scala]($raw$/Snippet.scala) { #sender_snippet }

@@ -5,6 +5,13 @@ Both the Java and Scala examples each have unit tests in the <a href="#code/src/
 directory.  The <a href="#code/src/test/java/HelloAkkaTest.java" class="shortcut">Java tests</a> use JUnit, while
 the <a href="#code/src/test/scala/HelloAkkaSpec.scala" class="shortcut">Scala tests</a> use ScalaTest.
 
+Java
+:    @@snip [HelloAkkaTest.java]($g8srctest$/java/HelloAkkaTest.java) { #test_snippet }
+
+Scala
+:    @@snip [HelloAkkaSpec.scala]($g8srctest$/scala/HelloAkkaSpec.scala) { #test_snippet }
+
+
 Both of these tests are making use of the excellent Akka
 <a href="http://doc.akka.io/docs/akka/2.4.4/scala/testing.html" target="_blank">TestKit</a> module,
 which makes it so much easier to test and verify concurrent code.

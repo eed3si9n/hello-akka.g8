@@ -17,6 +17,7 @@ class HelloAkkaSpec(_system: ActorSystem)
     system.awaitTermination(10.seconds)
   }
 
+  // #test_snippet
   "An HelloAkkaActor" should "be able to set a new greeting" in {
     val greeter = TestActorRef(Props[Greeter])
     greeter ! WhoToGreet("testkit")
@@ -29,4 +30,5 @@ class HelloAkkaSpec(_system: ActorSystem)
     greeter ! Greet
     expectMsgType[Greeting].message.toString should be("hello, testkit")
   }
+  // end #test_snippet
 }

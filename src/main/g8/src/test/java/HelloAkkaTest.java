@@ -23,6 +23,7 @@ public class HelloAkkaTest {
         system.awaitTermination(Duration.create("10 seconds"));
     }
 
+    // #test_snippet
     @Test
     public void testSetGreeter() {
         new JavaTestKit(system) {{
@@ -53,4 +54,5 @@ public class HelloAkkaTest {
             };
         }};
     }
+    // end #test_snippet
 }

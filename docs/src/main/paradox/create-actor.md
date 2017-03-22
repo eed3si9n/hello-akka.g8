@@ -20,22 +20,10 @@ Actor (and ActorSystem) names are important in Akka, you use them for example wh
 configure them in the <a href="http://doc.akka.io/docs/akka/2.4.4/general/configuration.html">configuration
 file</a>, so you should take your time giving your Actors good names.
 
-This is the code that we have to write in Java:
+Java
+:    @@snip [HelloAkkaJava.java]($g8src$/java/HelloAkkaJava.java) { #create_snippet }
 
-```java
-// Java code
-
-final ActorSystem system = ActorSystem.create("helloakka");
-final ActorRef greeter = system.actorOf(Props.create(Greeter.class), "greeter");
-```
-
-The Scala code is not much different:
-
-```scala
-// Scala code
-
-val system = ActorSystem("helloakka")
-val greeter = system.actorOf(Props[Greeter], "greeter")
-```
+Scala
+:    @@snip [HelloAkkaScala.scala]($g8src$/scala/HelloAkkaScala.scala) { #create_snippet }
 
 Now we have a running instance of a `Greeter` actor. Next we will learn how to communicate with it.
