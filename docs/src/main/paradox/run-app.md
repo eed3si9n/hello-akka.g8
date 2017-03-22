@@ -11,13 +11,10 @@ at the full sample then now is a good time to do so.
 
 Let's have some fun and run it.
 
-In <a href="#run" class="shortcut">Run</a>, select the application to run from the drop-down list, and select
-**Start**. Feel free to modify, compile and re-run the sample.
-
-Inspect the App
----------------
-
-Use <a href="#inspect" class="shortcut">Inspect</a> to see what is happening with the Actors in a running application.  This will contain a list of the Actors in the Actor System.  Drilling down into an individual Actor will display a number of statistics and information about the Actor.  Deviations will show you any issues with your Actors.
+```
+$ sbt
+> run
+```
 
 Next Steps
 ----------
