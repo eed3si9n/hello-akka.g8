@@ -17,5 +17,5 @@ lazy val root = (project in file("."))
 lazy val docs = (project in file("docs"))
   .enablePlugins(ParadoxPlugin)
   .settings(
-    // paradoxProperties += ("download_url" -> "https://example.lightbend.com/v1/download/play-rest-api")
+    paradoxProperties += ("download_url" -> "https://example.lightbend.com/v1/download/hello-akka?name=hello-akka")
   )

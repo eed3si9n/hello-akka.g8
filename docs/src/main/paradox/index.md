@@ -1,7 +1,7 @@
 Hello Akka
 ==========
 
-You've just created a simple Akka application! Now lets explore the code and make some changes.
+This is a guide to create a simple Akka application.  You can get source code for this guide from <https://example.lightbend.com/v1/download/hello-akka?name=hello-akka> or from [Tech Hub project starter](http://developer.lightbend.com/start?category=akka&template=hello-akka).
 
 In short, <a href="http://akka.io">Akka</a> is a toolkit and runtime for building highly concurrent,
 distributed, and fault-tolerant event-driven applications on the JVM. Akka can be used with both Java
